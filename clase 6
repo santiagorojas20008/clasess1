@@ -1,0 +1,55 @@
+class Estudiante:
+    def __init__(self, nombre, edad, materia):
+        self.nombre = nombre
+        self.edad = edad
+        self.materia = materia  
+
+    def obtener_nombre(self):
+        return self.nombre
+
+    def obtener_edad(self):
+        return self.edad
+
+    def obtener_materia(self): 
+        return self.materia
+
+    def establecer_nombre(self, nuevo_nombre):
+        self.nombre = nuevo_nombre
+
+    def establecer_edad(self, nueva_edad):
+        if nueva_edad > 0:
+            self.edad = nueva_edad
+        else:
+            print(" Error: La edad no puede ser negativa o cero.")
+
+    def establecer_materia(self, nueva_materia): 
+        self.materia = nueva_materia
+
+    def calcular_nota_media(self, lista_notas):
+        """Calcula el promedio sumando todas las notas y dividiendo por la cantidad de exámenes."""
+        if len(lista_notas) == 0:
+            return 0  
+        
+        suma_total = sum(lista_notas)
+        cantidad_examenes = len(lista_notas)
+        promedio = suma_total / cantidad_examenes
+        
+        return promedio
+
+
+alumno = Estudiante("Panchito", 20, "Física")
+
+print(f"Estudiante original: {alumno.obtener_nombre()} - {alumno.obtener_edad()} años - {alumno.obtener_materia()}")
+
+alumno.establecer_edad(21)
+
+alumno.establecer_materia("Ciencias de la Computación")
+
+print(f"Estudiante actualizado: {alumno.obtener_nombre()} - {alumno.obtener_edad()} años - {alumno.obtener_materia()}")
+print("-" * 30)
+
+mis_notas = [8.5, 9.0, 7.5, 10.0]
+media = alumno.calcular_nota_media(mis_notas)
+
+print(f"Las notas de {alumno.obtener_nombre()} son: {mis_notas}")
+print(f"La nota media es: {media:.2f}")
