@@ -1,0 +1,19 @@
+class Rectangulo:
+    def __init__(self, longitud, anchura):
+        self.longitud = longitud
+        self.anchura = anchura
+
+    def calcular_area(self):
+    
+        area = self.longitud * self.anchura
+        return area
+
+    def calcular_perimetro(self):
+        perimetro = 2 * (self.longitud + self.anchura)
+        return perimetro
+
+mi_caja = Rectangulo(10, 5)
+
+print(f"Propiedades: Longitud {mi_caja.longitud}, Anchura {mi_caja.anchura}")
+print(f"El área es: {mi_caja.calcular_area()}")
+print(f"El perímetro es: {mi_caja.calcular_perimetro()}")
