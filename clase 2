@@ -1,0 +1,31 @@
+import datetime
+
+class Coche:
+    def __init__(self, marca, modelo, año):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+
+    def obtener_marca(self):
+        """Devuelve la marca del coche."""
+        return self.marca
+
+    def obtener_modelo(self):
+        """Devuelve el modelo del coche."""
+        return self.modelo
+
+    def obtener_año(self):
+        """Devuelve el año de fabricación del coche."""
+        return self.año
+
+    def calcular_antiguedad(self):
+        """Calcula y devuelve los años que han pasado desde que se fabricó."""
+        # Obtenemos el año actual automáticamente
+        año_actual = datetime.date.today().year
+        return año_actual - self.año
+
+mi_auto = Coche("Toyota", "Corolla", 2015)
+print(f"Marca: {mi_auto.obtener_marca()}")
+print(f"Modelo: {mi_auto.obtener_modelo()}")
+print(f"Año: {mi_auto.obtener_año()}")
+print(f"Años desde su fabricación: {mi_auto.calcular_antiguedad()} años")
