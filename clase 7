@@ -1,0 +1,48 @@
+import math
+
+class Banco:
+    def __init__(self, nombre, tasa_interes_porcentaje):
+        self.nombre = nombre
+    
+        self.tasa_interes = tasa_interes_porcentaje / 100
+
+    def calcular_interes(self, cantidad, años):
+        """Calcula el interés ganado sobre una cantidad en un tiempo determinado."""
+      
+        monto_final = cantidad * ((1 + self.tasa_interes) ** años)
+        interes_ganado = monto_final - cantidad
+        
+        return interes_ganado
+
+    def tiempo_para_duplicar(self):
+        """Calcula los años exactos necesarios para duplicar cualquier capital."""
+       
+        if self.tasa_interes <= 0:
+            return "Con esta tasa, el dinero nunca se duplicará."
+            
+  
+        años_necesarios = math.log(2) / math.log(1 + self.tasa_interes)
+        return años_necesarios
+
+
+mi_banco = Banco("Banco Provincia", 8)
+
+capital_inicial = 50000
+años_inversion = 5
+
+print(f" Bienvenido a {mi_banco.nombre}")
+print(f"Tasa de interés anual: {mi_banco.tasa_interes * 100}%")
+print("-" * 40)
+
+
+ganancia = mi_banco.calcular_interes(capital_inicial, años_inversion)
+print(f"Si inviertes ${capital_inicial} a {años_inversion} años...")
+print(f"Ganarás: ${ganancia:.2f} en puros intereses.")
+print(f"Tendrás un total de: ${capital_inicial + ganancia:.2f}")
+
+print("-" * 40)
+
+
+tiempo_duplicar = mi_banco.tiempo_para_duplicar()
+print(f" Tiempo para duplicar CUALQUIER cantidad de dinero:")
+print(f"{tiempo_duplicar:.1f} años.")
